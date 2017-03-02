@@ -13,10 +13,13 @@ ACS712 sensor(ACS712_30A, A1);
 void setup() {
   Serial.begin(9600);
 
-  // This method calibrates zero point of sensor,
+  // calibrate() method calibrates zero point of sensor,
   // It is not necessary, but may positively affect the accuracy
   // Ensure that no current flows through the sensor at this moment
+  // If you are not sure that the current through the sensor will not leak during calibration - comment out this method
+  Serial.println("Calibrating... Ensure that no current flows through the sensor at this moment");
   sensor.calibrate();
+  Serial.println("Done!");
 }
 
 void loop() {
