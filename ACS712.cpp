@@ -1,6 +1,9 @@
 #include "ACS712.h"
 
 ACS712::ACS712(ACS712_type type, uint8_t _pin) {
+	pin = _pin;
+
+	// Different models of the sensor have their sensitivity:
 	switch (type) {
 		case ACS712_05B:
 			sensitivity = 0.185;
@@ -11,22 +14,16 @@ ACS712::ACS712(ACS712_type type, uint8_t _pin) {
 		case ACS712_30A:
 			sensitivity = 0.066;
 			break;
-		default:
-			sensitivity = 0.066;
-			break;
 	}
-	pin = _pin;
 }
 
 int ACS712::calibrate() {
-	int _zero = 0;
+	uint16_t acc = 0;
 	for (int i = 0; i < 10; i++) {
-		_zero += analogRead(pin);
-		delay(10);
+		acc += analogRead(pin);
 	}
-	_zero /= 10;
-	zero = _zero;
-	return _zero;
+	zero = acc / 10;
+	return zero;
 }
 
 void ACS712::setZeroPoint(int _zero) {
@@ -38,7 +35,11 @@ void ACS712::setSensitivity(float sens) {
 }
 
 float ACS712::getCurrentDC() {
-	float I = (zero - analogRead(pin)) / ADC_SCALE * VREF / sensitivity;
+	int16_t acc = 0;
+	for (int i = 0; i < 10; i++) {
+		acc += analogRead(pin) - zero;
+	}
+	float I = (float)acc / 10.0 / ADC_SCALE * VREF / sensitivity;
 	return I;
 }
 
@@ -54,7 +55,7 @@ float ACS712::getCurrentAC(uint16_t frequency) {
 	int32_t Inow;
 
 	while (micros() - t_start < period) {
-		Inow = zero - analogRead(pin);
+		Inow = analogRead(pin) - zero;
 		Isum += Inow*Inow;
 		measurements_count++;
 	}

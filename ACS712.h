@@ -20,7 +20,7 @@ public:
 	float getCurrentAC(uint16_t frequency);
 
 private:
-	float zero = 512.0;
+	int zero = 512;
 	float sensitivity;
 	uint8_t pin;
 };

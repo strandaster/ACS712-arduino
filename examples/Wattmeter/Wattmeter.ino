@@ -6,9 +6,9 @@
   or any other system with alternative current
 */
 
-// We have 30 amps version sensor connected to A1 pin of arduino
+// We have 30 amps version sensor connected to A0 pin of arduino
 // Replace with your version if necessary
-ACS712 sensor(ACS712_30A, A1);
+ACS712 sensor(ACS712_30A, A0);
 
 void setup() {
   Serial.begin(9600);
@@ -34,6 +34,7 @@ void loop() {
   // To calculate the power we need voltage multiplied by current
   float P = U * I;
 
+  Serial.println(String("I = ") + I + " A");
   Serial.println(String("P = ") + P + " Watts");
 
   delay(1000);

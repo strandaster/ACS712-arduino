@@ -4,9 +4,9 @@
   This example shows how to measure DC current
 */
 
-// We have 30 amps version sensor connected to A1 pin of arduino
+// We have 30 amps version sensor connected to A0 pin of arduino
 // Replace with your version if necessary
-ACS712 sensor(ACS712_30A, A1);
+ACS712 sensor(ACS712_30A, A0);
 
 void setup() {
   Serial.begin(9600);
@@ -16,8 +16,9 @@ void setup() {
   // Ensure that no current flows through the sensor at this moment
   // If you are not sure that the current through the sensor will not leak during calibration - comment out this method
   Serial.println("Calibrating... Ensure that no current flows through the sensor at this moment");
-  sensor.calibrate();
+  int zero = sensor.calibrate();
   Serial.println("Done!");
+  Serial.println("Zero point for this sensor = " + zero);
 }
 
 void loop() {

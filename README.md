@@ -22,7 +22,7 @@ Constructor has two parameters: sensor model and analog input to which it is con
 This method reads the value from the current sensor and returns it.
 
 ### *float* **getCurrentAC(** *uint16_t* frequency **)**
-This method allows you to measure AC voltage. Current frequency is measured in Hz. Method use the Root Mean Square technique for the measurement. The measurement itself takes time of one full period (1second / frequency). RMS method allow us to measure complex signals different from the perfect sine wave.
+This method allows you to measure AC voltage. Frequency is measured in Hz. Method use the Root Mean Square technique for the measurement. The measurement itself takes time of one full period (1second / frequency). RMS method allow us to measure complex signals different from the perfect sine wave.
 
 ### *float* **getCurrentAC()**
 Does the same as the previous method, but frequency is equal to 50 Hz.
