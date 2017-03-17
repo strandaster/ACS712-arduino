@@ -9,7 +9,7 @@ Wiring
 | ACS712 | Arduino |
 |:------:|:-------:|
 | GND    | GND     |
-| OUT    | A1      |
+| OUT    | A0      |
 | VCC    | 5V      |
 
 Methods
