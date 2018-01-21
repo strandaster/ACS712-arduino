@@ -1,6 +1,6 @@
 ACS712
 ======
-An Arduino library to interact with the ACS712 Hall effect-based linear current sensor. Includes DC and RMS AC current measuring. Supports ACS712-05B, ACS712-20A, ACS712-30A sensors. Typical applications include motor control, load detection and management, switch mode power supplies, and overcurrent fault protection.
+An Arduino library to interact with the ACS712 Hall effect-based linear analog current sensor. Includes DC and RMS AC current measuring. Supports ACS712-05B, ACS712-20A, ACS712-30A sensors. Typical applications include motor control, load detection and management, switch mode power supplies, and overcurrent fault protection.
 
 For more information see the datasheet: http://www.allegromicro.com/~/media/files/datasheets/acs712-datasheet.ashx
 
@@ -32,3 +32,7 @@ This method reads the current value of the sensor and sets it as a reference poi
 
 ### *void* **setZeroPoint(** *int* _zero **)**
 This method sets the obtained value as a zero point for measurements. You can use the previous method once, in order to find out zero point of your sensor and then use this method in your code to set starting point without reading sensor.
+
+Compatibility
+=============
+The sensor itself and the library compatible with all 5V Arduino and Arduino-like boards. You can also use it with 3.3V boards (Pro Mini or ESP8266 chips) but you need to provide stable 5V power to sensor and put voltage divider between output of the sensor and analog input of your board.
