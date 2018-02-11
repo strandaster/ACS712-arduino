@@ -16,8 +16,7 @@ public:
 	void setZeroPoint(int _zero);
 	void setSensitivity(float sens);
 	float getCurrentDC();
-	float getCurrentAC();
-	float getCurrentAC(uint16_t frequency);
+	float getCurrentAC(uint16_t frequency = 50);
 
 private:
 	int zero = 512;
