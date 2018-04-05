@@ -6,11 +6,13 @@ For more information see the datasheet: http://www.allegromicro.com/~/media/file
 
 Wiring
 ======
-| ACS712 | Arduino |
-|:------:|:-------:|
-| GND    | GND     |
-| OUT    | A0      |
-| VCC    | 5V      |
+### Arduino
+![alt arduino](https://raw.githubusercontent.com/rkoptev/ACS712-arduino/master/img/ACS712_arduino_wiring.jpg)
+### ESP8266
+In order to use the sensor with the ESP8266, you definitely need to take care of two things:
+1. You need a 5V power for the sensor (the ESP8266 works from 3.3V)
+2. Be sure to use a resistor divider to limit the voltage at the sensor output to 3.3V so as not to damage the analog input of the ESP.
+![alt esp8266](https://raw.githubusercontent.com/rkoptev/ACS712-arduino/master/img/ACS712_esp8266_wiring.jpg)
 
 Methods
 =======

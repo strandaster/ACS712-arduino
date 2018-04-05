@@ -7,5 +7,5 @@
 		"type": "git",
 		"url": "https://github.com/rkoptev/ACS712-arduino.git"
 	},
-	"platforms": "atmelavr"
+	"platforms": ["atmelavr", "espressif8266", "espressif32"]
 }
