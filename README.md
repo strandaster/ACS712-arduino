@@ -10,8 +10,8 @@ Wiring
 ![alt arduino](https://raw.githubusercontent.com/rkoptev/ACS712-arduino/master/img/ACS712_arduino_wiring.jpg)
 ### ESP8266
 In order to use the sensor with the ESP8266, you definitely need to take care of two things:
-1. You need a 5V power for the sensor (the ESP8266 works from 3.3V)
-2. Be sure to use a resistor divider to limit the voltage at the sensor output to 3.3V so as not to damage the analog input of the ESP.
+1. You need a 5V power for the sensor (the ESP8 works on 3.3V)
+2. ESP8266's ADC works in range 0-1 Volts, it means you need to use voltage divider to convert 0-5V range from sensor to 0-1V.
 ![alt esp8266](https://raw.githubusercontent.com/rkoptev/ACS712-arduino/master/img/ACS712_esp8266_wiring.jpg)
 
 Methods
