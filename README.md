@@ -1,4 +1,4 @@
-ACS712
+ACS712 [![Build Status](https://travis-ci.org/rkoptev/ACS712-arduino.svg?branch=master)](https://travis-ci.org/rkoptev/ACS712-arduino)
 ======
 An Arduino library to interact with the ACS712 Hall effect-based linear analog current sensor. Includes DC and RMS AC current measuring. Supports ACS712-05B, ACS712-20A, ACS712-30A sensors. Typical applications include motor control, load detection and management, switch mode power supplies, and overcurrent fault protection.
 
