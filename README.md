@@ -4,6 +4,8 @@ An Arduino library to interact with the ACS712 Hall effect-based linear analog c
 
 For more information see the datasheet: http://www.allegromicro.com/~/media/files/datasheets/acs712-datasheet.ashx
 
+The accuracy of the analog sensors in conjunction with the low resolution of built-in Arduino ADC hardly allows you to accurately measure the current. So, this sensor is not suitable for precise measurements, but it will be useful in cases where you need to detect the presence of current and approximately estimate its amount. For more accurate measurements, I recommend using digital sensors such as Adafruit INA219.
+
 Wiring
 ======
 ### Arduino
@@ -31,7 +33,3 @@ This method reads the current value of the sensor and sets it as a reference poi
 
 ### *void* **setZeroPoint(** *int* _zero **)**
 This method sets the obtained value as a zero point for measurements. You can use the previous method once, in order to find out zero point of your sensor and then use this method in your code to set starting point without reading sensor.
-
-Compatibility
-=============
-The sensor itself and the library compatible with all 5V Arduino and Arduino-like boards. You can also use it with 3.3V boards (Pro Mini or ESP8266 chips) but you need to provide stable 5V power to sensor and put voltage divider between output of the sensor and analog input of your board.
