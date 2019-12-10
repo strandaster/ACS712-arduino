@@ -25,7 +25,7 @@ private:
 	int zero = 512;
 	float sensitivity;
 	uint8_t pin;
-  float voltageReference = 3.3;      // Vcc of the MCU
+  float voltageReference = 5;      // Vcc of the MCU
   float adcScale = 1024.0;           // ADC resolution
 };
 
